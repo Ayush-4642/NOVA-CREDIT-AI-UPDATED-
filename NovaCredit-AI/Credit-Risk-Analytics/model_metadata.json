@@ -1,0 +1,224 @@
+{
+  "model_architecture": "Scikit-Learn Pipeline (StandardScaler + OneHotEncoder -> Calibrated Tuned RandomForestClassifier v2.1)",
+  "version": "2.1.0",
+  "timestamp_trained": "2026-10-23 22:27:25",
+  "features": {
+    "all_features": [
+      "age",
+      "income",
+      "credit_score",
+      "years_employed",
+      "loan_amount",
+      "loan_term_months",
+      "existing_debt",
+      "previous_loans",
+      "late_payments",
+      "monthly_expenses",
+      "savings_balance",
+      "debt_to_income_ratio",
+      "gender",
+      "marital_status",
+      "city",
+      "education_level",
+      "employment_status",
+      "loan_purpose"
+    ],
+    "numeric_features": [
+      "age",
+      "income",
+      "credit_score",
+      "years_employed",
+      "loan_amount",
+      "loan_term_months",
+      "existing_debt",
+      "previous_loans",
+      "late_payments",
+      "monthly_expenses",
+      "savings_balance",
+      "debt_to_income_ratio"
+    ],
+    "categorical_features": [
+      "gender",
+      "marital_status",
+      "city",
+      "education_level",
+      "employment_status",
+      "loan_purpose"
+    ],
+    "form_field_aliases": {
+      "loan_term": "loan_term_months"
+    }
+  },
+  "target": {
+    "name": "loan_default",
+    "class_0": "Low Risk (No Default)",
+    "class_1": "High Risk (Default)"
+  },
+  "metrics": {
+    "train_accuracy": 0.8798,
+    "test_accuracy": 0.832,
+    "test_roc_auc": 0.882,
+    "test_f1_macro": 0.8304,
+    "test_precision_high_risk": 0.8421,
+    "test_recall_high_risk": 0.788,
+    "test_brier_score": 0.1412,
+    "cv_accuracy_mean": 0.83,
+    "cv_accuracy_std": 0.0153,
+    "cv_roc_auc_mean": 0.8799,
+    "cv_roc_auc_std": 0.0138,
+    "majority_class_baseline": 0.533
+  },
+  "confusion_matrix": {
+    "tn": 464,
+    "fp": 69,
+    "fn": 99,
+    "tp": 368
+  },
+  "feature_importances": [
+    {
+      "feature": "credit_score",
+      "importance": 0.2895,
+      "percentage": 28.95
+    },
+    {
+      "feature": "late_payments",
+      "importance": 0.1793,
+      "percentage": 17.93
+    },
+    {
+      "feature": "debt_to_income_ratio",
+      "importance": 0.1506,
+      "percentage": 15.06
+    },
+    {
+      "feature": "existing_debt",
+      "importance": 0.0996,
+      "percentage": 9.96
+    },
+    {
+      "feature": "income",
+      "importance": 0.061,
+      "percentage": 6.1
+    },
+    {
+      "feature": "loan_amount",
+      "importance": 0.0486,
+      "percentage": 4.86
+    },
+    {
+      "feature": "monthly_expenses",
+      "importance": 0.0272,
+      "percentage": 2.72
+    },
+    {
+      "feature": "savings_balance",
+      "importance": 0.0271,
+      "percentage": 2.71
+    },
+    {
+      "feature": "age",
+      "importance": 0.0208,
+      "percentage": 2.08
+    },
+    {
+      "feature": "years_employed",
+      "importance": 0.0203,
+      "percentage": 2.03
+    },
+    {
+      "feature": "previous_loans",
+      "importance": 0.0147,
+      "percentage": 1.47
+    },
+    {
+      "feature": "city",
+      "importance": 0.0146,
+      "percentage": 1.46
+    },
+    {
+      "feature": "loan_term_months",
+      "importance": 0.012,
+      "percentage": 1.2
+    },
+    {
+      "feature": "loan_purpose",
+      "importance": 0.0106,
+      "percentage": 1.06
+    },
+    {
+      "feature": "employment_status",
+      "importance": 0.0074,
+      "percentage": 0.74
+    },
+    {
+      "feature": "marital_status",
+      "importance": 0.0069,
+      "percentage": 0.69
+    },
+    {
+      "feature": "education_level",
+      "importance": 0.0062,
+      "percentage": 0.62
+    },
+    {
+      "feature": "gender",
+      "importance": 0.0036,
+      "percentage": 0.36
+    }
+  ],
+  "threshold_tradeoffs": [
+    {
+      "threshold": 0.3,
+      "accuracy": 0.761,
+      "precision": 0.6833,
+      "recall": 0.9101,
+      "f1": 0.7805
+    },
+    {
+      "threshold": 0.35,
+      "accuracy": 0.797,
+      "precision": 0.7366,
+      "recall": 0.8801,
+      "f1": 0.802
+    },
+    {
+      "threshold": 0.4,
+      "accuracy": 0.826,
+      "precision": 0.7913,
+      "recall": 0.8522,
+      "f1": 0.8206
+    },
+    {
+      "threshold": 0.45,
+      "accuracy": 0.836,
+      "precision": 0.8258,
+      "recall": 0.8223,
+      "f1": 0.824
+    },
+    {
+      "threshold": 0.5,
+      "accuracy": 0.832,
+      "precision": 0.8421,
+      "recall": 0.788,
+      "f1": 0.8142
+    },
+    {
+      "threshold": 0.55,
+      "accuracy": 0.827,
+      "precision": 0.8657,
+      "recall": 0.7452,
+      "f1": 0.8009
+    },
+    {
+      "threshold": 0.6,
+      "accuracy": 0.819,
+      "precision": 0.8907,
+      "recall": 0.6981,
+      "f1": 0.7827
+    }
+  ],
+  "recommendation_thresholds": {
+    "default_decision_threshold": 0.5,
+    "conservative_audit_threshold": 0.4
+  }
+}

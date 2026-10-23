@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}Prediction Result — NovaCredit AI{% endblock %}
+{% block content %}
+
+<div class="topbar">
+  <div>
+    <h1>🎯 Risk Assessment Result</h1>
+    <p>Credit risk profile evaluation for <strong>{{ record.customer_name }}</strong> &bull; Generated {{ record.timestamp }}</p>
+  </div>
+  <div style="display:flex;gap:10px;">
+    <a href="{{ url_for('predict.download_report', record_id=record.id) }}" class="btn btn-primary btn-sm">📄 Download PDF Report</a>
+    <a href="{{ url_for('predict.view_report', record_id=record.id) }}" class="btn btn-ghost btn-sm" target="_blank">🧾 Print Report</a>
+  </div>
+</div>
+
+<div class="result-wrap">
+  <!-- GAUGE CARD -->
+  <div class="glass gauge-card">
+    <h3 style="margin-bottom:16px;">🎯 Calibrated Default Risk</h3>
+    <div class="gauge-wrap">
+      <canvas id="riskGauge" width="220" height="130"></canvas>
+    </div>
+    <div class="gauge-scale"><span>0% (Safe)</span><span>100% (Default)</span></div>
+    <div style="font-size:2.2rem;font-weight:800;margin-top:6px;">{{ record.prediction_probability }}%</div>
+    <p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:12px;">Predicted Probability of Default</p>
+    
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+      <span class="risk-badge {{ 'high' if record.prediction == 'High Risk' else 'low' }}">
+        {{ '⚠️' if record.prediction == 'High Risk' else '✅' }} {{ record.prediction }}
+      </span>
+      {% if record.risk_tier %}
+      <span class="tech-pill" style="font-size:0.82rem;background:rgba(255,255,255,0.08);">
+        Tier: {{ record.risk_tier }}
+      </span>
+      {% endif %}
+    </div>
+
+    <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.85rem;color:var(--text-secondary);">
+      Decision Cutoff: <strong>P &ge; 50.0%</strong>
+    </div>
+  </div>
+
+  <!-- FEATURE SUMMARY -->
+  <div class="glass summary-card">
+    <h3 style="margin-bottom:12px;">📋 Applicant Financial Profile</h3>
+    <div class="row"><span>💳 Credit Score</span><strong>{{ record.credit_score }}</strong></div>
+    <div class="row"><span>💰 Annual Income</span><strong>₹{{ '{:,.0f}'.format(record.income) if record.income else '-' }}</strong></div>
+    <div class="row"><span>🏦 Requested Loan</span><strong>₹{{ '{:,.0f}'.format(record.loan_amount) if record.loan_amount else '-' }}</strong></div>
+    <div class="row"><span>⏳ Loan Term</span><strong>{{ record.loan_term }} months</strong></div>
+    <div class="row"><span>📉 Existing Debt</span><strong>₹{{ '{:,.0f}'.format(record.existing_debt) if record.existing_debt else '-' }}</strong></div>
+    <div class="row"><span>⏱️ Late Payments</span><strong>{{ record.late_payments }} incident(s)</strong></div>
+    <div class="row"><span>🏛️ Liquid Savings</span><strong>₹{{ '{:,.0f}'.format(record.savings_balance) if record.savings_balance else '-' }}</strong></div>
+    <div class="row"><span>⚖️ Debt-to-Income (DTI)</span><strong>{{ record.debt_to_income_ratio }}</strong></div>
+    <div class="row"><span>🏢 Employment</span><strong>{{ record.employment_status }} ({{ record.years_employed }} yrs)</strong></div>
+    <div class="row"><span>🎯 Loan Purpose</span><strong>{{ record.loan_purpose }}</strong></div>
+  </div>
+
+  <!-- RISK FACTORS -->
+  <div class="glass summary-card">
+    <h3 style="margin-bottom:10px;color:{{ '#f87171' if record.prediction == 'High Risk' else '#34d399' }};">
+      {{ '⚠️ Primary Risk Drivers' if record.prediction == 'High Risk' else '✅ Favorable Credit Factors' }}
+    </h3>
+    <ul class="reco-list">
+      {% for reason in reasons %}
+      <li style="margin-bottom:8px;line-height:1.5;">&bull; {{ reason }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- RECOMMENDATIONS -->
+  <div class="glass summary-card">
+    <h3 style="margin-bottom:10px;color:#3ddcff;">💡 Actionable Credit Guidance</h3>
+    <ul class="reco-list">
+      {% for tip in tips %}
+      <li style="margin-bottom:8px;line-height:1.5;">&check; {{ tip }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<div style="display:flex;gap:14px;justify-content:center;margin-top:34px;flex-wrap:wrap;">
+  <a href="{{ url_for('predict.download_report', record_id=record.id) }}" class="btn btn-primary">📄 Download PDF Report</a>
+  <a href="{{ url_for('predict.view_report', record_id=record.id) }}" class="btn btn-ghost" target="_blank">🧾 View Printable Report</a>
+  <a href="{{ url_for('predict.predict') }}" class="btn btn-ghost">🔄 New Assessment</a>
+  <a href="{{ url_for('history.history') }}" class="btn btn-ghost">📜 View Assessment History</a>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  drawRiskGauge('riskGauge', {{ record.prediction_probability }}, {{ 'true' if record.prediction == 'High Risk' else 'false' }});
+</script>
+{% endblock %}

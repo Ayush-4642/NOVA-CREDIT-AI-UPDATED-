@@ -1,0 +1,9 @@
+id,timestamp,customer_name,age,gender,marital_status,city,education_level,employment_status,income,credit_score,years_employed,loan_amount,loan_term,existing_debt,previous_loans,late_payments,monthly_expenses,savings_balance,debt_to_income_ratio,loan_purpose,prediction,prediction_probability,risk_tier
+11,2026-10-23 18:02:57,KISAY,43,Female,Divorced,GHAZIABAD,PhD,Self-Employed,77899.0,778,43,667899.0,7,56777.0,7,4,55567.0,899.0,34.0,Car,High Risk,53.13,High Risk
+10,2026-10-23 15:40:28,Integration Tester,38,Female,Single,Chennai,Bachelor,Salaried,1100000.0,730,9,450000.0,36,120000.0,2,1,32000.0,220000.0,0.19,Home,Low Risk,16.13,Low Risk
+8,2026-10-09 13:51:58,Integration Tester,38,Female,Single,Chennai,Bachelor,Salaried,1100000.0,730,9,450000.0,36,120000.0,2,1,32000.0,220000.0,0.19,Home,Low Risk,16.13,Low Risk
+6,2026-10-09 13:49:35,Integration Tester,38,Female,Single,Chennai,Bachelor,Salaried,1100000.0,730,9,450000.0,36,120000.0,2,1,32000.0,220000.0,0.19,Home,Low Risk,16.13,Low Risk
+4,2026-07-05 10:09:22,NIRAJ ,52,Male,Married,PUNE,PhD,Salaried,240000.0,430,6,489382.0,5,329111.0,7,4,89822.0,42111.0,5.0,Medical,High Risk,59.0,
+3,2026-07-05 10:06:41,AVICHAL,20,Male,Single,Varanasi,PhD,Business,30000.0,560,14,800000.0,7,3492.0,10,6,27821.0,2832.0,6.0,Personal,High Risk,71.0,
+2,2026-07-05 10:04:27,NEETA ,23,Female,Married,DELHI,Master,Self-Employed,34000.0,348,30,47828.0,8,23000.0,6,3,38922.0,8433.0,9.0,Personal,Low Risk,49.0,
+1,2026-07-05 10:02:24,AYUSH SRIVASTAVA,20,Male,Single,Varanasi,Bachelor,Business,40000.0,372,20,74739.0,3,4000.0,3,2,37743.0,4832.0,3.0,Education,Low Risk,46.0,

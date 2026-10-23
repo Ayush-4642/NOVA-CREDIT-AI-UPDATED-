@@ -1,0 +1,122 @@
+{
+  "Logistic Regression (Baseline)": {
+    "cv_accuracy_mean": 0.751,
+    "cv_accuracy_std": 0.0162,
+    "cv_roc_auc_mean": 0.8252,
+    "cv_roc_auc_std": 0.008,
+    "train_accuracy": 0.7575,
+    "test_accuracy": 0.749,
+    "test_roc_auc": 0.8217,
+    "test_f1_macro": 0.7468,
+    "test_f1_weighted": 0.7484,
+    "test_precision_high_risk": 0.7455,
+    "test_recall_high_risk": 0.7024,
+    "test_brier_score": 0.1709,
+    "confusion_matrix": [
+      [
+        421,
+        112
+      ],
+      [
+        139,
+        328
+      ]
+    ]
+  },
+  "Decision Tree (Max Depth=5)": {
+    "cv_accuracy_mean": 0.8225,
+    "cv_accuracy_std": 0.0197,
+    "cv_roc_auc_mean": 0.8716,
+    "cv_roc_auc_std": 0.0137,
+    "train_accuracy": 0.8435,
+    "test_accuracy": 0.841,
+    "test_roc_auc": 0.8708,
+    "test_f1_macro": 0.8406,
+    "test_f1_weighted": 0.8411,
+    "test_precision_high_risk": 0.8182,
+    "test_recall_high_risk": 0.848,
+    "test_brier_score": 0.1266,
+    "confusion_matrix": [
+      [
+        445,
+        88
+      ],
+      [
+        71,
+        396
+      ]
+    ]
+  },
+  "Production Random Forest (v2.1)": {
+    "cv_accuracy_mean": 0.83,
+    "cv_accuracy_std": 0.0153,
+    "cv_roc_auc_mean": 0.8799,
+    "cv_roc_auc_std": 0.0138,
+    "train_accuracy": 0.8798,
+    "test_accuracy": 0.832,
+    "test_roc_auc": 0.882,
+    "test_f1_macro": 0.8304,
+    "test_f1_weighted": 0.8315,
+    "test_precision_high_risk": 0.8421,
+    "test_recall_high_risk": 0.788,
+    "test_brier_score": 0.1412,
+    "confusion_matrix": [
+      [
+        464,
+        69
+      ],
+      [
+        99,
+        368
+      ]
+    ]
+  },
+  "Gradient Boosting (Tuned)": {
+    "cv_accuracy_mean": 0.8268,
+    "cv_accuracy_std": 0.0158,
+    "cv_roc_auc_mean": 0.8783,
+    "cv_roc_auc_std": 0.0139,
+    "train_accuracy": 0.887,
+    "test_accuracy": 0.838,
+    "test_roc_auc": 0.8826,
+    "test_f1_macro": 0.8366,
+    "test_f1_weighted": 0.8376,
+    "test_precision_high_risk": 0.8474,
+    "test_recall_high_risk": 0.7966,
+    "test_brier_score": 0.1269,
+    "confusion_matrix": [
+      [
+        466,
+        67
+      ],
+      [
+        95,
+        372
+      ]
+    ]
+  },
+  "HistGradientBoosting (Fast Ensemble)": {
+    "cv_accuracy_mean": 0.8278,
+    "cv_accuracy_std": 0.0109,
+    "cv_roc_auc_mean": 0.8732,
+    "cv_roc_auc_std": 0.0146,
+    "train_accuracy": 0.9233,
+    "test_accuracy": 0.831,
+    "test_roc_auc": 0.8783,
+    "test_f1_macro": 0.8297,
+    "test_f1_weighted": 0.8307,
+    "test_precision_high_risk": 0.8341,
+    "test_recall_high_risk": 0.7966,
+    "test_brier_score": 0.1303,
+    "confusion_matrix": [
+      [
+        459,
+        74
+      ],
+      [
+        95,
+        372
+      ]
+    ]
+  }
+}
